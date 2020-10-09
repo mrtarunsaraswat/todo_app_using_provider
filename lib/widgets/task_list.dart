@@ -14,18 +14,20 @@ class TasksList extends StatelessWidget {
               topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       child: Consumer<TaskData>(builder: (context, taskData, child) {
         return ListView.builder(
-          itemBuilder: (context, index) {
-            final myTask = taskData.task[index];
-            return TaskTile(
+            itemBuilder: (context, index) {
+              final myTask = taskData.task[index];
+              return TaskTile(
                 taskTitle: myTask.name,
                 isChecked: myTask.isDone,
                 checkBoxCall: (checkBoxState) {
                   taskData.updateTask(myTask);
+                },
+                deleteCallback: () {
+                  taskData.deleteTask(myTask);
+                },
+              );
             },
-            );
-          },
-          itemCount: taskData.taskCount
-        );
+            itemCount: taskData.taskCount);
       }),
     );
   }
