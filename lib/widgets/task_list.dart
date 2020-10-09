@@ -11,7 +11,7 @@ class TasksList extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+              topLeft: Radius.circular(20), topRight: Radius.circular(22))),
       child: Consumer<TaskData>(builder: (context, taskData, child) {
         return ListView.builder(
             itemBuilder: (context, index) {
